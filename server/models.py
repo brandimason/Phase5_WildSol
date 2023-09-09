@@ -99,7 +99,7 @@ class User(db.Model, SerializerMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     #relationships
-    yoga_signups = relationship('yoga_signups', backpopulates=('users'))
+    yoga_signups = relationship('yoga_signups', back_populates=('users'))
     community_event_signups = db.relationship("community_event_signups", back_populates="users")
 
     #serialize rules
@@ -143,7 +143,7 @@ class Community_Event_SignUp(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
 
     #relationships
-    users = db.relatisonship("users", back_populates="community_event_signups")
+    users = db.relationship("users", back_populates="community_event_signups")
     community_events = db.relationship("community_events", back_populates="community_event_signups")
 
     #serialize rules
