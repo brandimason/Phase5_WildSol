@@ -110,9 +110,9 @@ def index():
 
 
 # Views go here! use either route!
-# @app.errorhandler(404)
-# def not_found(e):
-#     return render_template("index.html")
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("index.html")
 
 # @app.route('/', defaults={'path': ''})
 # @app.route('/<path:path>')

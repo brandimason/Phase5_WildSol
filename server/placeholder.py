@@ -3,8 +3,9 @@ from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import validates, relationship
 from config import db, bcrypt
 
-
 # Models go here!
+
+
 class Yoga_Class(db.Model, SerializerMixin):
     __tablename__ = 'yoga_classes'
 
