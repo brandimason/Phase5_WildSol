@@ -3,6 +3,9 @@ from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import validates, relationship
 from config import db, bcrypt
 
+##questions:
+#where do I need to set up cascading deletes? what is the purpose again?
+
 
 # Models go here!
 class Yoga_Class(db.Model, SerializerMixin):
@@ -10,16 +13,16 @@ class Yoga_Class(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     class_name = db.Column(db.String)
-    class_type = db.Column(db.String)
+    # class_type = db.Column(db.String)
     class_description = db.Column(db.String)
-    start_time = db.Column(db.DateTime, server_default=db.func.now())
+    start_time = db.Column(db.DateTime)
     time_duration = db.Column(db.String)
     teacher_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     #relationships
-    yoga_signups = db.relationship("yoga_signups", back_populates="yoga_classes", cascade='delete,all')
+    yoga_signups = relationship("Yoga_SignUp", back_populates="yoga_classes", cascade='delete,all')
 
     #serialize rules
     serialize_rules = ('-yoga_signups',)
@@ -70,8 +73,8 @@ class Yoga_SignUp(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
 
     #relationships
-    users = db.relationship("users", back_populates="yoga_signups")
-    yoga_classes = db.relationship("yoga_classes", back_populates="yoga_signups")
+    users = relationship("User", back_populates="yoga_signups")
+    yoga_classes = relationship("Yoga_Class", back_populates="yoga_signups")
 
     #serialize rules
     serialize_rules = ('-users', '-yoga_classes',)
@@ -92,15 +95,15 @@ class User(db.Model, SerializerMixin):
     email = db.Column(db.String)
     # password = db.Column(db.String)
     address = db.Column(db.String)
-    pronouns = db.Column(db.String)
+    # pronouns = db.Column(db.String)
     role = db.Column(db.String)
     membership_status = db.Column(db.Boolean(True))
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     #relationships
-    yoga_signups = relationship('yoga_signups', back_populates=('users'))
-    community_event_signups = db.relationship("community_event_signups", back_populates="users")
+    yoga_signups = relationship('Yoga_SignUp', back_populates='users')
+    community_event_signups = relationship("Community_Event_SignUp", back_populates="users")
 
     #serialize rules
     serialize_rules = ('-yoga_signups', '-community_event_signups',)
@@ -143,8 +146,8 @@ class Community_Event_SignUp(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
 
     #relationships
-    users = db.relationship("users", back_populates="community_event_signups")
-    community_events = db.relationship("community_events", back_populates="community_event_signups")
+    users = relationship("User", back_populates="community_event_signups")
+    community_events = relationship("Community_Event", back_populates="community_event_signups")
 
     #serialize rules
     serialize_rules = ('-users', '-community_events',)
@@ -160,14 +163,14 @@ class Community_Event(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     event_name = db.Column(db.String)
     event_description = db.Column(db.String)
-    start_time = db.Column(db.DateTime, server_default=db.func.now())
+    start_time = db.Column(db.DateTime)
     time_duration = db.Column(db.String)
     location = db.Column(db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
     #relationships
-    community_event_signups = db.relationship("community_event_signups", back_populates="community_events", cascade='delete,all')
+    community_event_signups = relationship("Community_Event_SignUp", back_populates="community_events", cascade='delete,all')
 
     #serialize rules
     serialize_rules = ('-community_event_signups',)
