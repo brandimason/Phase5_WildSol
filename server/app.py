@@ -4,29 +4,43 @@
 
 # Remote library imports
 from flask import request, render_template, Flask, session
-from flask_restful import Resource, Api
+from flask_restful import Resource
 
 # Local imports
 from config import app, db, api
 # Add your model imports
-# from models import db, Yoga_Class, Yoga_SignUps, Users, Community_Event_SignUps, Community_Events
+from models import Yoga_Class, Yoga_SignUp, User, Community_Event_SignUp, Community_Event
 
-# app = Flask(__name__)
+
 
 
 @app.route('/')
 def index():
     return '<h1>Phase 4 Project Server</h1>'
 
-# class Login(Resource):
-#     pass
 
-# class CheckSession(Resource):
-#     pass
+#logging in
+class Login(Resource):
+    def post(self):
+        login = request.get_json()
+        email = login['email']
+        password = login['password']
+        user = User.query.filter(User.email == email).first()
+        if user:
+            if user.authenticate(password):
+                session['user.id'] = user.id
+                return user.to_dict(), 200
+        return {'error': 'Unauthorized'}, 401
 
-# class Logout(Resource):
-#     pass
+class CheckSession(Resource):
+    pass
 
+class Logout(Resource):
+    pass
+
+
+
+#add query for post request for make sure username doesn't already exist
 # class Users(Resource):
 #     def get(self):
 #         pass

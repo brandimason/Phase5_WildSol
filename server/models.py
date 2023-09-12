@@ -1,7 +1,9 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import validates, relationship
+from sqlalchemy.ext.hybrid import hybrid_property
 from config import db, bcrypt
+
 
 ##questions:
 #where do I need to set up cascading deletes? what is the purpose again?
@@ -89,15 +91,11 @@ class User(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
-    # last_name = db.Column(db.String)
-    # birthday = db.Column(db.Integer)
-    # phone_number = db.Column(db.Integer)
     email = db.Column(db.String)
-    # password = db.Column(db.String)
     address = db.Column(db.String)
-    # pronouns = db.Column(db.String)
     role = db.Column(db.String)
     membership_status = db.Column(db.Boolean(True))
+    _password_hash = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
@@ -108,6 +106,23 @@ class User(db.Model, SerializerMixin):
     #serialize rules
     serialize_rules = ('-yoga_signups', '-community_event_signups',)
 
+    #password hashing
+    @hybrid_property
+    def password_hash(self):
+        return self._password_hash
+    
+    @password_hash.setter
+    def password_hash(self, password):
+        #utf-8 encoding and decoding is required for python 3
+        password_hash = bcrypt.generate_password_hash(
+            password.encode('utf-8'))
+        self._password_hash = password_hash.decode('utf-8')\
+        
+    def authenticate(self, password):
+        return bcrypt.check_password_hash(
+            self._password_hash, password.encode('utf-8'))
+
+    #repr
     def __repr__(self):
         return f'<User {self.id}>'
     

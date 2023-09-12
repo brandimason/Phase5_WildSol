@@ -78,7 +78,7 @@ def create_users():
     for _ in range(50):
         u = User(
             name = fake.name(),
-            # last_name = fake.name(),
+            password_hash = "123abc",
             email = fake.email(),
             address = fake.address(),
             role = rc(["admin", "user"]),
