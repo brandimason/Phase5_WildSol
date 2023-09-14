@@ -44,9 +44,9 @@ function Login({setUser}) {
           <input type="text" password="password" placeholder='password' value={password} onChange={handlePassword}/>
 
           {/* #login button  */}
+          {/* this method isn't going to work bc even if I put in the wrong information, it will route me to the correct page but doesnt log me in or give me any errors -- I think I need to do a terhnary or something */}
           <button>
           <Link type="submit" to="/schedule">Login</Link>
-
           </button>
 
           <button>

@@ -28,6 +28,7 @@ function NavBar({user, setUser}) {
                     {user ? <Link onClick={handleLogout} to="/">Logout </Link>:<Link to="/login">Login</Link>}
                     <br></br>
                     {/* <Link to="/signup">Signup</Link> */}
+                    {/* moved the signup link to the login page so it only shows there */}
                 {/* </li> */}
             {/* </ul> */}
         </>
