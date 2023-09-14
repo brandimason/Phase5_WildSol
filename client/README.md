@@ -1,4 +1,12 @@
-# React + Vite
+#
+// To Dos:
+// Once the user is logged in, takes user to class schedule?
+// Only prompted to login when trying to reserve a class
+// 
+
+
+# Don't need this right now.
+ React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

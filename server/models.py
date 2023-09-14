@@ -4,6 +4,10 @@ from sqlalchemy.orm import validates, relationship
 from sqlalchemy.ext.hybrid import hybrid_property
 from config import db, bcrypt
 
+# flask db init
+# flask db revision --autogenerate -m "create tables"
+# flask db upgrade head
+
 
 ##questions:
 #where do I need to set up cascading deletes? what is the purpose again?

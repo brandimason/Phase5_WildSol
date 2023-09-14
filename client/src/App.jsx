@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Login from './components/pages/Login'
@@ -6,24 +6,42 @@ import Home from './components/pages/Home'
 import About from './components/pages/About'
 import Schedule from './components/pages/Schedule'
 import Community from './components/pages/Community'
-// import './App.css'
+import SignUp from './components/pages/SignUp'
 
 function App() {
-  // const [count, setCount] = useState(0)
+
+  const [user, setUser] = useState(null)
+  
+  function fetchUsers(){
+    fetch('/api/checksession')
+    .then(res=> {
+      if (res.ok){
+        res.json()
+        .then(data => setUser(data))
+      }
+      else{
+        setUser(null)
+      }
+    })
+  }
+
+  useEffect(()=>{
+    fetchUsers()
+  },[])
+
 
   return (
     <>
     <Router>
-      {/* <NavLink> */}
-        <NavBar/>
+        <NavBar user={user} setUser={setUser}/>
         <Routes>
-            <Route exact path="/" Component={Home}></Route>
-            <Route path="/about" Component={About}></Route>
-            <Route path ="/schedule" Component={Schedule}></Route>
-            <Route path="/community" Component={Community}></Route>
-            <Route path="/login" Component={Login}></Route>
+            <Route path="/" element={<Home/>} />
+            <Route path="/about" element={<About/>} />
+            <Route path ="/schedule" element={<Schedule/>}/>
+            <Route path="/community" element={<Community/>}/>
+            <Route path="/login" element={<Login setUser={setUser} />} />
+            <Route path="/signup" element={<SignUp/>}/>
         </Routes>
-      {/* </NavLink> */}
     </Router>
     </>
   )
