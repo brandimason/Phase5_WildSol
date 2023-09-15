@@ -12,8 +12,9 @@ from config import app, db, api
 # Add your model imports
 from models import Yoga_Class, Yoga_SignUp, User, Community_Event_SignUp, Community_Event
 
-# would like to go back and be more thoughtful about the error messages
 
+#To Dos:
+# would like to go back and be more thoughtful about the error messages
 
 @app.route('/')
 def index():
@@ -22,7 +23,7 @@ def index():
 
 #logging in
 
-#login/logout tested and all routes are working -- did not test check session, certain it is working.
+#login/logout tested and all routes are working 
 class Login(Resource):
     def post(self):
         login = request.get_json()
@@ -31,7 +32,7 @@ class Login(Resource):
         user = User.query.filter(User.email == email).first()
         if user:
             if user.authenticate(password):
-                session['user.id'] = user.id
+                session['user_id'] = user.id
                 return user.to_dict(), 200
         return {'error': 'Unauthorized'}, 401
 
@@ -74,7 +75,7 @@ class Users(Resource):
         db.session.add(new_user)
         db.session.commit()
         session['user_id'] = new_user.id
-        return new_user.to_dict(), 200
+        return new_user.to_dict(), 201
 
 #usersbyid tested and all routes are working
 class UsersById(Resource):
@@ -343,7 +344,7 @@ def not_found(e):
 api.add_resource(Login, '/login')
 api.add_resource(CheckSession, '/checksession')
 api.add_resource(Logout, '/logout')
-api.add_resource(Users, '/users')
+api.add_resource(Users, '/signup')
 api.add_resource(UsersById, '/users/<int:id>')
 api.add_resource(Yoga_Classes, '/yogaclasses')
 api.add_resource(YogaClassesById, '/yogaclasses/<int:id>')
