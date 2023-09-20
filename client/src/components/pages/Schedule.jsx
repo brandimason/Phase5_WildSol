@@ -67,7 +67,10 @@ function Schedule() {
 
   return (
     <div>
+      <div data-theme="light" className="hero min-h-screen bg-base-200">
+
     <Calendar localizer={localizer} events={events} startAccessor="start" endAccessor="end" style={{height:500, margin :"50px"}}/>
+      </div>
     </div>
   )
 }
