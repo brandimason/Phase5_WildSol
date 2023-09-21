@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
   return (
 
-    <footer className="footer p-10 bg-base-200 text-base-content">
+    <footer className="footer sticky top-[100vh] p-10 bg-base-200 text-base-content ">
     <form>
     <header className="footer-title">GET ON THE LIST</header> 
     <fieldset className="form-control w-80">

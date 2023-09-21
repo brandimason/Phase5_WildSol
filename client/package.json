@@ -12,6 +12,7 @@
     "dependencies": {
         "@mobiscroll/react": "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-5.26.2.tgz",
         "@popperjs/core": "^2.11.8",
+        "clsx": "^2.0.0",
         "date-fns": "^2.30.0",
         "react": "^18.2.0",
         "react-big-calendar": "^1.8.4",

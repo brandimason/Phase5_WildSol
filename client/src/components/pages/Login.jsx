@@ -127,13 +127,22 @@ function Login({setUser}) {
             {/* button for signing in */}
             <div>
               <button
-                // type="submit"
+                type="submit"
                 className="flex w-full justify-center rounded-md bg-purple-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
               >
                 Sign in
               </button>
               <br></br>
-              <Link type='submit' to="/signup">Don't have an account? Sign up here.</Link>
+              <Link type='submit' to="/signup">Don't have an account? Create one now.</Link>
+              <br></br>
+
+              {/* checkbox */}
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <input type="checkbox" checked="checked" className="checkbox checkbox-xs" />
+                  <span className="label-text"> I agree to the Terms of Service and Privacy Policy.</span> 
+                </label>
+              </div>
               {/* need to add a condition to this that if it's the user, route to class schedule */}
               {/* <Link to="/"
                 // type="submit"
