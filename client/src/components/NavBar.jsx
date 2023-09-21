@@ -9,39 +9,19 @@ import Schedule from './pages/Schedule'
 import Community from './pages/Community'
 import SignUp from './pages/SignUp'
 import React from 'react';
-// bootstrap css import
-import 'bootstrap/dist/css/bootstrap.min.css';
-// imports for bootstrap
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 
 ///// to dos:
-// figure out how to toggle the button between login/logout and route to homepage 
+// - figure out how to toggle the button between login/logout -- DONE
+// - once logged in, have it route you to the schedule 
+// - have the menu dropdown close once something else is clicked
 
-// function NavBar() {
+//Stretch 
+// - add classes route that has the class descriptions
+// - add option for profile for user so they can update their account
+
+
 function NavBar({user, setUser}) { 
-  //--- original function name
 
-// after moving NavBar Components here:
-//i want to keep this on the parent level so moving back
-// const [user, setUser] = useState(null)
-//   function fetchUsers(){
-//     fetch('/api/checksession')
-//     .then(res=> {
-//       if (res.ok){
-//         res.json()
-//         .then(data => setUser(data))
-//       }
-//       else{
-//         setUser(null)
-//       }
-//     })
-//   }
-
-//   useEffect(()=>{
-//     fetchUsers()
-//   },[])
 
 
     function handleLogout(){
@@ -70,42 +50,82 @@ function NavBar({user, setUser}) {
                      */}
 
 
-
-
-
-
-
           {/* trying to move navbar components here and here only  */}
-          <Router>
-            <Navbar bg="dark" data-bs-theme="dark">
-                <Container>
-                  <Navbar.Brand as={Link} to= {"/"}>WildSol Collective</Navbar.Brand>
-                  {/* {user? <p>Hey {user.name}!</p> : null} // i moved this to the home page */}
-                </Container>
-                  <Nav className="me-auto">
-                  {/* {user? <p>Hello {user.name}</p> : null} */}
-                    <Nav.Link as={Link} to= {"/"}>Home</Nav.Link>
-                    <Nav.Link as={Link} to= {"/about"}>About</Nav.Link>
-                    <Nav.Link as={Link} to= {"/schedule"}>Schedule</Nav.Link>
-                    <Nav.Link as={Link} to= {"/community"}>Community</Nav.Link>
-                    {/* figure out how to toggle the button between login/logout and route to homepage */}
-                    <Nav.Link as={Link} to={"/login"}>Login</Nav.Link>
-                    <Nav.Link as={Link} to={"/signup"}>Signup</Nav.Link>
+  <Router>
+{/* daisy UI NavBar Component */}
+  <div data-theme="light" className="navbar bg-base-100">
+    <div className="navbar-start">
+      <div className="dropdown">
+        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        </label>
+        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
 
-                  </Nav>
-              </Navbar>
+          {/* NOT SURE IF THIS IS NEEDED - LOOKS LIKE IT WORKS WITHOUT IT
+          <li><a>Home</a></li>
+          <li>
+            <a>Parent</a>
+            <ul className="p-2">
+              <li><a>Submenu 1</a></li>
+              <li><a>Submenu 2</a></li>
+            </ul>
+          </li>
+          <li><a>Item 3</a></li> */}
+        </ul>
+      </div>
 
-        <Routes>
-            <Route path="/" element={<Home user={user}/>} />
-            <Route path="/about" element={<About/>} />
-            <Route path ="/schedule" element={<Schedule/>}/>
-            <Route path="/community" element={<Community/>}/>
-            <Route path="/login" element={<Login setUser={setUser} />} />
-            <Route path="/signup" element={<SignUp/>}/>
-        </Routes>
-    </Router>
-        </>
-    )
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        WildSol Collective
+        </Link>
+    </div>
+    <div className="navbar-center hidden lg:flex">
+      <ul className="menu menu-horizontal px-1">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+
+        <li>
+        <Link to="/community">Community</Link>
+        </li>
+
+
+        <li tabIndex={0}>
+          <details>
+            <summary>Studio</summary>
+            <ul className="p-2">
+              <li>
+                <a>Classes</a>
+              </li>
+
+              <li>
+                <Link to="/schedule">Schedule</Link>
+              </li>
+
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+    <div className="navbar-end">
+      {user ? <Link onClick={handleLogout} to="/">Logout</Link>:<Link to="/login">Login</Link>}
+    </div>
+  </div>
+
+      <Routes>
+          <Route path="/" element={<Home user={user}/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path ="/schedule" element={<Schedule/>}/>
+          <Route path="/community" element={<Community/>}/>
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/signup" element={<SignUp/>}/>
+      </Routes>
+  </Router>
+      </>
+  )
 }
 
 export default NavBar;

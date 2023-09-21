@@ -6,17 +6,18 @@ import Row from 'react-bootstrap/Row';
 
 function Cards() {
     return (
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
+        <div className="card w-96 bg-base-100 shadow-xl">
+          <figure className="px-10 pt-10">
+            <img src="https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1675461804761-JRUTIW9A5XRRMZKFT52F/rovinj-croatia-1800x1000.jpeg?format=1500w" alt="Event" className="rounded-xl" />
+          </figure>
+          <div className="card-body items-center text-center">
+            <h2 className="card-title">Community Event</h2>
+            <p>Here's a community event to sign up for!</p>
+            <div className="card-actions">
+              <button className="btn btn-primary">Sign Up Now</button>
+            </div>
+          </div>
+        </div>
       );
     }
 

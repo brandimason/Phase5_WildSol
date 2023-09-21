@@ -3,12 +3,10 @@ import Cards from '../Cards'
 
 function Community() {
   return (
-
-    <div>This is the community events page
-
-      <Cards />
-      <Cards />
-    </div>
+      <div data-theme="light" className="hero min-h-screen bg-base-200">
+      <Cards/>
+      
+      </div>
   )
 }
 
