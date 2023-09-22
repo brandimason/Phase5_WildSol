@@ -38,9 +38,19 @@ function Classes() {
   return (
     <div>
         
-      <div data-theme="light" className="min-h-screen bg-base-200">
+      {/* <div data-theme="light" className="min-h-screen bg-base-200"> */}
       <div className="max-w-4xl min-w-full">
-          <h1 className="text-3xl font-bold text-center" style={{fontSize:"30px", padding: "1% 3%"}}>Class Descriptions</h1>
+
+      <div data-theme="light" className="min-h-screen bg-base-200 justify-center ">
+        
+        
+            <h1 className="text-3xl font-bold text-center" style={{fontSize:"40px", padding: "4%"}}>Class Descriptions</h1>
+            
+       
+        
+          {/* <h1 className="text-3xl font-bold text-center" style={{fontSize:"30px", padding: "1% 3%"}}>Class Descriptions 2</h1> */}
+        </div>
+
           {/* below this */}
 
             {/* <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -66,7 +76,7 @@ function Classes() {
         </div>
       </div>
 
-    </div>
+    // </div>
   )
 }
 

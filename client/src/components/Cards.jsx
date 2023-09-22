@@ -29,7 +29,7 @@ const events = [
 
 function Cards() {
     return (
-      <div className='display: flex flex-1 flex-row space-x-20'>
+      <div className='display: flex flex-1 flex-row space-x-20 justify-center'>
 
         {events.map((val, key) => {
             return (
@@ -42,10 +42,20 @@ function Cards() {
                       <div className="card-body items-center text-center">
                       <h2 className="card-title">{val.name}</h2>
                       <p>{val.description}</p>
-                      <p>When: {val.duration}</p>
-                      <p>Where: {val.location}</p>
+                      <p>Dates: {val.duration}</p>
+                      <p>Location: {val.location}</p>
                         <div className="card-actions">
-                          <button className="btn btn-primary">Sign Up Now</button>
+                          {/* <button className="btn btn-primary">Sign Up Now</button> */}
+                          {/* modal */}
+                          <button className='btn btn-outline' onClick={()=>document.getElementById('my_modal_2').showModal()}>Sign Up Now</button>
+                            <dialog id="my_modal_2" className="modal">
+                              <div className="modal-box">
+                              <h3 className="font-bold text-lg text-center">We'll reach out to you with the details.</h3>
+                              </div>
+                              <form method="dialog" className="modal-backdrop">
+                                <button>close</button>
+                              </form>
+                            </dialog>
                         </div>
                       </div>
                   </div>

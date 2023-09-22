@@ -13,6 +13,7 @@ function Thursday() {
       })
       }, [])
 
+     
       return (
         <table className="table rounded" style={{width:"100%", border: "1px solid rgb(0, 0, 0)"}}>
         <thead style={{border: "1px solid rgb(0, 0, 0)", }}>Today's Date <button className='btn btn-outline btn-sm '>Today</button></thead>    {yogaClasses.map((val, key) => {
@@ -54,8 +55,7 @@ function Thursday() {
               <button className='btn btn-outline btn-wide' onClick={()=>document.getElementById('my_modal_2').showModal()}>Reserve</button>
                 <dialog id="my_modal_2" className="modal">
                   <div className="modal-box">
-                    <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">Press ESC key or click outside to close</p>
+                  <h3 className="font-bold text-lg text-center">You're all signed up! See you in class.</h3>
                   </div>
                   <form method="dialog" className="modal-backdrop">
                     <button>close</button>

@@ -37,9 +37,6 @@ function SignUp() {
         .then(data => console.log(data))
     }
 
-    // function handleCreateAccount(){
-
-    // }
     //form that I moved up
     // <form onSubmit={handleSubmit}>
     //         {/* name */}
@@ -60,32 +57,43 @@ function SignUp() {
 
     return (
     
-    <div data-theme="light" className="hero min-h-screen bg-base-200">
-
-
-        {/* addition items for create account */}
-
-
-
-
+    <div data-theme="light" className="min-h-screen bg-base-200">
 
         {/* original create account */}
 
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          {/* <img
-            className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt="Your Company"
-          /> */}
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Create an Account
           </h2>
+          <p className='text-center'>
+              Already have an account? <Link type='submit' to="/login"><u> Log in now.</u></Link>
+            </p>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form onSubmit={handleSubmit}
           className="space-y-6" action="#" method="POST">
+
+
+            {/* code for name validation */}
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+                Name
+              </label>
+              <div className="mt-2">
+                <input
+                  id="name"
+                  name="name"
+                  type="name"
+                  value={name} 
+                  onChange={handleName}
+                  autoComplete="name"
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
 
             {/* code for email validation */}
             <div>
@@ -97,11 +105,30 @@ function SignUp() {
                   id="email"
                   name="email"
                   type="email"
-                //   value={email} 
-                //   onChange={handleEmail}
+                  value={email} 
+                  onChange={handleEmail}
                   autoComplete="email"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            {/* code for address validation */}
+            <div>
+              <label htmlFor="address" className="block text-sm font-medium leading-6 text-gray-900">
+                Address
+              </label>
+              <div className="mt-2">
+                <input
+                  id="address"
+                  name="address"
+                  type="address"
+                  value={address} 
+                  onChange={handleAddress}
+                  autoComplete="address"
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -113,7 +140,7 @@ function SignUp() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-purple-600 hover:text-purple-500">
+                  <a href="#" className="font-semibold text-black hover:text-purple-500">
                     Forgot password?
                   </a>
                 </div>
@@ -123,25 +150,34 @@ function SignUp() {
                   id="password"
                   name="password"
                   type="password" // adds security so you can't see
-                //   value={password} 
-                //   onChange={handlePassword}
+                  value={password} 
+                  onChange={handlePassword}
                   autoComplete="current-password"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-400 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
 
+            {/* checkbox */}
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <input type="checkbox" checked="checked" className="checkbox checkbox-xs" />
+                  <span className="label-text"> I agree to the Terms of Service and Privacy Policy.</span> 
+                </label>
+              </div>
+
             {/* button for signing in */}
             <div>
               <button
-                // type="submit"
-                className="flex w-full justify-center rounded-md bg-purple-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                type="submit"
+                className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
               >
-                Sign in
+                Create Account
               </button>
               <br></br>
-              <Link type='submit' to="/login">Already have an account? Log in here.</Link>
+              
+
               {/* need to add a condition to this that if it's the user, route to class schedule */}
               {/* <Link to="/"
                 // type="submit"

@@ -61,7 +61,7 @@ function Login({setUser}) {
 
   return (
     // this div is from the hero page to make them all look the same
-    <div data-theme="light" className="hero min-h-screen bg-base-200">
+    <div data-theme="light" className="min-h-screen bg-base-200">
 
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -93,7 +93,7 @@ function Login({setUser}) {
                   onChange={handleEmail}
                   autoComplete="email"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -105,7 +105,7 @@ function Login({setUser}) {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-purple-600 hover:text-purple-500">
+                  <a href="#" className="font-semibold text-black hover:text-purple-500">
                     Forgot password?
                   </a>
                 </div>
@@ -119,7 +119,7 @@ function Login({setUser}) {
                   onChange={handlePassword}
                   autoComplete="current-password"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-400 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -128,21 +128,16 @@ function Login({setUser}) {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-purple-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                className="flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
               >
                 Sign in
               </button>
               <br></br>
-              <Link type='submit' to="/signup">Don't have an account? Create one now.</Link>
+              <p>
+                Don't have an account? <Link type='submit' to="/signup"><u> Create one now.</u></Link>
+              </p>
               <br></br>
 
-              {/* checkbox */}
-              {/* <div className="form-control">
-                <label className="label cursor-pointer">
-                  <input type="checkbox" checked="checked" className="checkbox checkbox-xs" />
-                  <span className="label-text"> I agree to the Terms of Service and Privacy Policy.</span> 
-                </label>
-              </div> */}
 
 
               {/* need to add a condition to this that if it's the user, route to class schedule */}

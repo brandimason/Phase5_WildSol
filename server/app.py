@@ -6,6 +6,7 @@
 from flask import request, render_template, Flask, session, make_response
 from flask_restful import Resource
 import datetime
+import random
 
 # Local imports
 from config import app, db, api
@@ -39,7 +40,6 @@ class Login(Resource):
 class CheckSession(Resource):
     def get(self):
         user = User.query.filter(User.id == session.get('user_id')).first()
-        ###not sure why it's user_id -- might not be right but worked for phase4 project
         if user:
             return user.to_dict()
         else:
@@ -114,8 +114,53 @@ class UsersById(Resource):
 #yoga classes routes tested and working
 class Yoga_Classes(Resource):
     def get(self):
-        yoga_classes = [y.to_dict() for y in Yoga_Class.query.all()]
-        return yoga_classes, 200
+    #     day: "Monday",
+    # start_time: "6:30AM",
+    # duration: "60 min.",
+    # className: "Power Flow 60",
+    # teacher: "Margot Antonelli",
+    # image: "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1684268950680-55QNSFOFE74OL09AHMIA/Margot%2BWeb.jpg?format=300w"
+
+        teachers = {
+            5: {
+                "name": "Emma Kirby",
+                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1684269196833-OU8AT91S2UJ6X3DIPDSK/Emman+Web.jpg?format=750w" 
+            },
+            1: {
+                "name": "Margot Antonelli",
+                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1684268950680-55QNSFOFE74OL09AHMIA/Margot%2BWeb.jpg?format=300w"
+            },
+            2: {
+                "name": "Brooke Wyman",
+                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1625072149608-SOSH4AXLHJBYHROTSJHG/brooke+wyman+2.jpg?format=750w"
+            },
+            3: {
+                "name": "Kaileigh Gallivan",
+                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1684269179299-9MXAY9XIO00F0JDW6PRJ/Untitled+2.jpg?format=300w"
+            },
+            4: {
+                "name": "Sybil Meyer",
+                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1625072441664-3HIEKTD7WS6IBV9Y8PKA/sybil+meyer+1.jpg?format=300w"
+            }
+        }
+
+        ret_val = [[] for i in range(7)]
+        for y in Yoga_Class.query.all():
+            ret_val[y.start_time.weekday()].append(
+                {
+                    "day": y.start_time.strftime('%A'),
+                    "start_time": y.start_time.strftime('%I:%M%p'),
+                    "date_time": y.start_time.strftime('%H'),
+                    "duration": y.time_duration,
+                    "className": y.class_name,
+                    "teacher": teachers[y.teacher_id]["name"],
+                    "image": teachers[y.teacher_id]["image"]
+                }
+            )
+
+        [r.sort(key=lambda x: x["date_time"]) for r in ret_val]
+
+        return ret_val, 200
     
     #I want to post a new class by picking from the 3 class options we have - how can I add these to a drop down on the front end and post it on the backend? Like picking a class and it autofills the boxes of creating a new class.
 

@@ -6,6 +6,8 @@ from random import randint, choice as rc
 # Remote library imports
 from faker import Faker
 import datetime
+from datetime import timedelta
+import copy
 
 
 # Local imports
@@ -141,7 +143,16 @@ if __name__ == '__main__':
         Community_Event_SignUp.query.delete()
 
         print("Creating Yoga Classes...")
-        yoga_class = [yc1, yc2, yc3]
+        yoga_class = []
+
+        for i in range(7):
+            for y in [yc1, yc2, yc3]:
+                new_y = copy.deepcopy(y)
+                time = randint(1,11)
+                new_y.start_time = convert(f'Sep 2{i} 2023 {time}:00{"PM" if time < 6 else "AM"}')
+                new_y.teacher_id = randint(1,5)
+                yoga_class.append(new_y)
+        print(yoga_class)
         db.session.add_all(yoga_class)
         db.session.commit()
 
