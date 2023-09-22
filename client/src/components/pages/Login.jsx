@@ -137,12 +137,14 @@ function Login({setUser}) {
               <br></br>
 
               {/* checkbox */}
-              <div className="form-control">
+              {/* <div className="form-control">
                 <label className="label cursor-pointer">
                   <input type="checkbox" checked="checked" className="checkbox checkbox-xs" />
                   <span className="label-text"> I agree to the Terms of Service and Privacy Policy.</span> 
                 </label>
-              </div>
+              </div> */}
+
+
               {/* need to add a condition to this that if it's the user, route to class schedule */}
               {/* <Link to="/"
                 // type="submit"
