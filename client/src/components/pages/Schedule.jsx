@@ -1,68 +1,61 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import Monday from '../Monday'
-import Tuesday from '../Tuesday'
+import Monday from '../Days/Monday'
+import Tuesday from '../Days/Tuesday'
+import Wednesday from '../Days/Wednesday'
+import Thursday from '../Days/Thursday'
+import Friday from '../Days/Friday'
+import Saturday from '../Days/Saturday'
+import Sunday from '../Days/Sunday'
 
-const classes = [
-  {
-    "day": "Monday",
-    "classes": [
-      { 
-      start_time: "6:30AM",
-      duration: "60 min.",
-      className: "Power Flow 60",
-      teacher: "Margot Antonelli",
-      image: "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1684268950680-55QNSFOFE74OL09AHMIA/Margot%2BWeb.jpg?format=300w"
-    },
-    { 
-      start_time: "6:30AM",
-      duration: "60 min.",
-      className: "Power Flow 60",
-      teacher: "Emma Kirby",
-      image: "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1684269196833-OU8AT91S2UJ6X3DIPDSK/Emman+Web.jpg?format=750w"  
-    },
-    { 
-      start_time: "6:30AM",
-      duration: "60 min.",
-      className: "Power Flow 60",
-      teacher: "Sybil Meyer",
-      image: "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1625072441664-3HIEKTD7WS6IBV9Y8PKA/sybil+meyer+1.jpg?format=750w" 
-    },
-    { 
-      start_time: "6:30AM",
-      duration: "60 min.",
-      className: "Power Flow 60",
-      teacher: "Kaileigh Gallivan",
-      image: "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1684269179299-9MXAY9XIO00F0JDW6PRJ/Untitled+2.jpg?format=750w"  
-    },
-    { 
-      start_time: "6:30AM",
-      duration: "60 min.",
-      className: "Power Flow 60",
-      teacher: "Jess Yanez",
-      image: "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1625072210158-DMFT188MJLFWYFZPNQ3D/jess+yanez+2.jpg?format=750w"  
-    },
-    { 
-      start_time: "6:30AM",
-      duration: "60 min.",
-      className: "Power Flow 60",
-      teacher: "Kat Wyman",
-      image: "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1625072060881-URITPEM1NB2EGNA7NFM5/kat+wyman+1.jpg?format=750w"
-    },
-    { 
-      start_time: "6:30AM",
-      duration: "60 min.",
-      className: "Power Flow 60",
-      teacher: "Brooke Wyman",
-      image: "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1625072149608-SOSH4AXLHJBYHROTSJHG/brooke+wyman+2.jpg?format=750w"
-    }
-    ]
-  }
-]
+
 
 function Schedule() {
+  let today = new Date();
+  const [currDay, setCurrDay] = useState(today.getDay()-1)
 
-  const [currDay, setCurrDay] = useState(0)
+  function boldDay(newCurrDay) {
+    if (newCurrDay === 0) {
+      let elem = document.getElementById("mon")
+      elem.style.fontWeight = "bold"
+    }
+
+    if (newCurrDay === 1) {
+      let elem = document.getElementById("tue")
+      elem.style.fontWeight = "bold"
+    }
+
+    if (newCurrDay === 2) {
+      let elem = document.getElementById("wed")
+      elem.style.fontWeight = "bold"
+    }
+    if (newCurrDay === 3) {
+      let elem = document.getElementById("thu")
+      elem.style.fontWeight = "bold"
+    }
+    if (newCurrDay === 4) {
+      let elem = document.getElementById("fri")
+      elem.style.fontWeight = "bold"
+    }
+    if (newCurrDay === 5) {
+      let elem = document.getElementById("sat")
+      elem.style.fontWeight = "bold"
+    }
+    if (newCurrDay === 6) {
+      let elem = document.getElementById("sun")
+      elem.style.fontWeight = "bold"
+    }
+  }
+
+  function handleNavClick(newCurrDay) {
+    setCurrDay(newCurrDay)
+    let elems = document.querySelectorAll("button")
+    for (let i = 0; i < elems.length; i++) {
+      elems[i].style.fontWeight = "normal"
+    }
+
+    boldDay(newCurrDay)
+  }
 
   return (
 
@@ -78,22 +71,19 @@ function Schedule() {
         <nav className='justify-center' style={{width:"100%"}}>
           <ul className="flex flex-row" style={{width:"100%"}}>
 
-              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button onClick={()=> setCurrDay(0)}>MON</button></li>
-              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button onClick={()=> setCurrDay(1)}>TUE</button></li>
-              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button>WED</button></li>
-              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button>THU</button></li>
-              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button>FRI</button></li>
-              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button>SAT</button></li>
-              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button>SUN</button></li>
+              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%" }}><button id="mon" onClick={()=> handleNavClick(0)}>MON</button></li>
+              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button id="tue" onClick={()=> handleNavClick(1)}>TUE</button></li>
+              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button id="wed" onClick={()=> handleNavClick(2)}>WED</button></li>
+              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button id="thu" onClick={()=> handleNavClick(3)}>THU</button></li>
+              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button id="fri" onClick={()=> handleNavClick(4)}>FRI</button></li>
+              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button id="sat" onClick={()=> handleNavClick(5)}>SAT</button></li>
+              <li className='flex-1 text-center' style={{fontSize:"30px", padding: "1% 3%"}}><button id="sun" onClick={()=> handleNavClick(6)}>SUN</button></li>
 
             </ul>
       </nav>
-              <table className="table rounded" style={{width:"100%", border: "1px solid rgb(0, 0, 0)"}}>
-                <thead style={{border: "1px solid rgb(0, 0, 0)", }}>Today's Date <button className='btn btn-outline btn-sm '>Today</button></thead>
 
-              {currDay === 0 ? <Monday/> : <Tuesday/>}
+              {currDay === 0 ? <Monday/> : currDay === 1 ? <Tuesday/> : currDay === 2 ? <Wednesday/> : currDay === 3 ? <Thursday/> : currDay === 4 ? <Friday/> : currDay === 5 ? <Saturday/> : <Sunday/>}
 
-              </table>
             </div>
 
 

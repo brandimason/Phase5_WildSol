@@ -2,20 +2,20 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 
 
-function Tuesday() {
+function Monday() {
     const [yogaClasses, setYogaClasses] = useState([])
     useEffect(()=> {
       fetch("/api/yogaclasses")
       .then(res => res.json())
       .then(data => {
         console.log(data)
-        setYogaClasses(data[1])
+        setYogaClasses(data[0])
       })
       }, [])
 
   return (
-    <div>
-    {yogaClasses.map((val, key) => {
+    <table className="table rounded" style={{width:"100%", border: "1px solid rgb(0, 0, 0)"}}>
+    <thead style={{border: "1px solid rgb(0, 0, 0)", }}>Today's Date <button className='btn btn-outline btn-sm '>Today</button></thead>    {yogaClasses.map((val, key) => {
         return (
     <tbody>
       {/* row 1 */}
@@ -67,8 +67,9 @@ function Tuesday() {
 
     </tbody>
     )
-    })}</div>
+    })}              </table>
+
   )
 }
 
-export default Tuesday
+export default Monday
