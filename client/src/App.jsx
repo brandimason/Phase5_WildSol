@@ -17,6 +17,7 @@ function App() {
       if (res.ok){
         res.json()
         .then(data => setUser(data))
+        // .then()
       }
       else{
         setUser(null)

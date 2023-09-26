@@ -1,13 +1,17 @@
 import React from 'react'
-// import Cell from './Cell';
+// import Cell from './cell'
 
-function Cal
-() {
-  return (
-    <div>Calendar
-        
-    
-    </div>
+function Cal({props}) {
+    return (
+        <div className="cards_container">
+            Calendar
+          {/* {props.map( prop => (
+            // <Cell
+            // key={prop.id}
+            // class={prop.class}
+            // />
+          ))} */}
+        </div>
   )
 }
 
