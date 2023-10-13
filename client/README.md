@@ -1,4 +1,4 @@
-#
+# These are notes for me
 // To Dos:
 // Once the user is logged in, takes user to class schedule?
 // Only prompted to login when trying to reserve a class
