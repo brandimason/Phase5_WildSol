@@ -1,5 +1,4 @@
 import React from 'react'
-// import Cell from './cell'
 
 function Cal({props}) {
     return (

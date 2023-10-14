@@ -124,23 +124,23 @@ class Yoga_Classes(Resource):
         teachers = {
             5: {
                 "name": "Emma Kirby",
-                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1684269196833-OU8AT91S2UJ6X3DIPDSK/Emman+Web.jpg?format=750w" 
+                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1696020524226-V66288PN5DVNQS97G7KO/DSC04937.jpg?format=300w" 
             },
             1: {
                 "name": "Margot Antonelli",
-                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1684268950680-55QNSFOFE74OL09AHMIA/Margot%2BWeb.jpg?format=300w"
+                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1696020474511-LV9OR2AUO65ZXXZFUSK3/DSC03263.jpg?format=300w"
             },
             2: {
-                "name": "Brooke Wyman",
-                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1625072149608-SOSH4AXLHJBYHROTSJHG/brooke+wyman+2.jpg?format=750w"
+                "name": "Tania Pritz",
+                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1696020487722-POOK5DLCMSP2J6WXVFXS/DSC03906.jpg?format=300w"
             },
             3: {
                 "name": "Kaileigh Gallivan",
-                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1684269179299-9MXAY9XIO00F0JDW6PRJ/Untitled+2.jpg?format=300w"
+                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1696020544938-KOO980MDUIS8AOW4NDO2/DSC05447-Enhanced-NR.jpg?format=300w"
             },
             4: {
                 "name": "Sybil Meyer",
-                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1625072441664-3HIEKTD7WS6IBV9Y8PKA/sybil+meyer+1.jpg?format=300w"
+                "image": "https://images.squarespace-cdn.com/content/v1/5abdfeb6d274cbcdee549a8f/1696020493371-I4SYUXV88XF3PKQ88YSB/DSC04202.jpg?format=300w"
             }
         }
 

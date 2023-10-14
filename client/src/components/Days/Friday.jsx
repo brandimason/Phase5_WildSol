@@ -17,7 +17,7 @@ function Friday() {
 
       return (
         <table className="table rounded" style={{width:"100%", border: "1px solid rgb(0, 0, 0)"}}>
-        <thead style={{border: "1px solid rgb(0, 0, 0)" }}> Today's Date <button className='btn btn-outline btn-sm '>Today</button></thead>    
+        <thead className="" style={{border: "1px solid rgb(0, 0, 0)" }}> Today's Date <button className='btn btn-outline btn-sm '>Today</button></thead>    
         {yogaClasses.map((val, key) => {
             return (
         <tbody>
@@ -41,7 +41,7 @@ function Friday() {
               <div className="flex items-center space-x-3">
                 <div className="avatar">
                   <div className="mask mask-circle w-16 h-16">
-                    <img src={val.image} alt="Avatar Tailwind CSS Component" />
+                    <img src={val.image} alt="Avatar" />
                   </div>
                 </div>
                 <div>
