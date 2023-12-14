@@ -31,11 +31,6 @@ function Friday() {
               </div>
             </td>
     
-            {/* <td className='flex-1'>
-              <div>
-                  <div className="text-sm opacity-50 flex-1">Denver</div>
-              </div>
-            </td> */}
             
             <td className='flex-1'>
               <div className="flex items-center space-x-3">

@@ -11,11 +11,11 @@ function Classes() {
         
         
             <h1 className="text-3xl font-bold text-center" style={{fontSize:"40px", padding: "4%"}}>Class Descriptions</h1>
+            <h5> adding some class descriptions here:</h5>
             
         </div>
 
           {/* below this */}
-
           {/* above this */}
         </div>
       </div>
