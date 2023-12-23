@@ -12,6 +12,12 @@ function Classes() {
         
             <h1 className="text-3xl font-bold text-center" style={{fontSize:"40px", padding: "4%"}}>Class Descriptions</h1>
             <h5> adding some class descriptions here:</h5>
+            Power Flow (Our Signature Class)
+            Empower yourself with this musically driven, soul nourishing, upbeat class. Flow with breath and dig deep for 60 fun and challenging minutes.
+
+            All levels welcome. Class heated to 90 degrees +.
+
+
             
         </div>
 
