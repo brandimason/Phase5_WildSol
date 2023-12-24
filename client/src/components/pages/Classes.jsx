@@ -19,6 +19,11 @@ function Classes() {
             <br></br>
             Slow Power Flow
             60 minute class designed for all levels. This class is structured similar to our power flow class, but taught at a much more intentional pace. We will spend more time in poses, as well as offer more modifications over the course of this class. Room is warmed to 80 degrees +.
+            <br></br>
+            Yin
+            Cozy up for 60 minutes of deep stretching. Each Yin class will go deeper than our muscles, to target the body's connective tissue.
+
+            Room gently warmed.
 
 
             
