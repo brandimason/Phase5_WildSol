@@ -5,6 +5,7 @@ function Classes() {
     <div>
         
       {/* <div data-theme="light" className="min-h-screen bg-base-200"> */}
+      {/* re-do, don't hard code */}
       <div className="max-w-4xl min-w-full">
 
       <div data-theme="light" className="min-h-screen bg-base-200 justify-center ">
