@@ -24,6 +24,13 @@ function Classes() {
             Cozy up for 60 minutes of deep stretching. Each Yin class will go deeper than our muscles, to target the body's connective tissue.
 
             Room gently warmed.
+            <br></br>
+            Power Plus
+            A mix of power vinyasa. PLUS a strengthening series. PLUS a little bit of cardio. PLUS some plyometrics. PLUS booty and core work. PLUS high energy, bumping music, and a damn good time. 
+
+            Designed with the intention to strengthen your mind and your practice. Room heated to 85+.
+
+
 
 
             
