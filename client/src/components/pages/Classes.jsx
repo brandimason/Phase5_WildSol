@@ -31,7 +31,9 @@ function Classes() {
 
             Designed with the intention to strengthen your mind and your practice. Room heated to 85+.
 
-
+            <br></br>
+            Restore
+            Snuggle in for 60 minutes that will nourish your mind, body, and soul. In this class we will slow way down, and utilize props, and long deep holds to get into our more dense connective tissue. This is an incredible practice to supplement a regular power practice, high impact workout routine, or just existing as a human.
 
 
             
