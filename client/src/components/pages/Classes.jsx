@@ -13,6 +13,7 @@ function Classes() {
         
             <h1 className="text-3xl font-bold text-center" style={{fontSize:"40px", padding: "4%"}}>Class Descriptions</h1>
             <h5> adding some class descriptions here:</h5>
+
             Power Flow (Our Signature Class)
             Empower yourself with this musically driven, soul nourishing, upbeat class. Flow with breath and dig deep for 60 fun and challenging minutes.
 
@@ -35,7 +36,12 @@ function Classes() {
             Restore
             Snuggle in for 60 minutes that will nourish your mind, body, and soul. In this class we will slow way down, and utilize props, and long deep holds to get into our more dense connective tissue. This is an incredible practice to supplement a regular power practice, high impact workout routine, or just existing as a human.
 
+            Restore
+            Snuggle in for 60 minutes that will nourish your mind, body, and soul. In this class we will slow way down, and utilize props, and long deep holds to get into our more dense connective tissue. This is an incredible practice to supplement a regular power practice, high impact workout routine, or just existing as a human.
+            <br>
+            </br>
 
+            {/* add class description cards, simiar to community section */}
             
         </div>
 
