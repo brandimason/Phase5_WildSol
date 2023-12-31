@@ -40,10 +40,10 @@ function Classes() {
             Snuggle in for 60 minutes that will nourish your mind, body, and soul. In this class we will slow way down, and utilize props, and long deep holds to get into our more dense connective tissue. This is an incredible practice to supplement a regular power practice, high impact workout routine, or just existing as a human. */}
             <br>
             </br>
-            {/* Restore
+            Restore
             Snuggle in for 60 minutes that will nourish your mind, body, and soul. In this class we will slow way down, and utilize props, and long deep holds to get into our more dense connective tissue. This is an incredible practice to supplement a regular power practice, high impact workout routine, or just existing as a human.
             <br>
-            </br> */}
+            </br>
 
             {/* add class description cards, simiar to community section */}
             
